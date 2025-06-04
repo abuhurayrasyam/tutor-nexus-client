@@ -13,6 +13,7 @@ const AddTutorials = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newTutorial = Object.fromEntries(formData.entries());
+        newTutorial.tutorialReview = 0;
         
         axios.post('http://localhost:3000/tutorials', newTutorial)
         .then((res) => {
