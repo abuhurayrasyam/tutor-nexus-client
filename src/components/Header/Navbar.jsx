@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
-import { AuthContext } from '../contexts/AuthContext/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import ThemeToggle from './ThemeToggle';
+import UserAvatarTooltip from './UserAvatarTooltip';
 
 const Navbar = () => {
 
@@ -73,14 +74,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end space-x-1.5 items-center">
                     <ThemeToggle></ThemeToggle>
-                    {
-                         user && 
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar" title={user.displayName}>
-                            <div className="w-8 md:w-12 rounded-full">
-                                <img alt={user.displayName} src={user.photoURL} />
-                            </div>
-                        </div>
-                    }
+                    <UserAvatarTooltip></UserAvatarTooltip>
                     {
                         user ? (
                             <button onClick={handleLogoutUser} className='bg-[#EAE4D5] rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer'>Logout</button>
