@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
 
@@ -71,6 +72,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1">{navLinks}</ul>
                 </div>
                 <div className="navbar-end space-x-1.5 items-center">
+                    <ThemeToggle></ThemeToggle>
                     {
                          user && 
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar" title={user.displayName}>
