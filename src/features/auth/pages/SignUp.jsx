@@ -7,6 +7,7 @@ import SignInWithGoogle from '../components/SignInWithGoogle';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
 
 const SignUp = () => {
 
@@ -51,13 +52,23 @@ const SignUp = () => {
         .then(() => {
             updateUserProfile({displayName: name, photoURL: photo})
             .then(() => {
-                navigate(`${location.state ? location.state : '/'}`);
-                Swal.fire({
-                    icon: "success",
-                    title: "Your account has been created successfully!",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+
+                const userProfile = {
+                    name, photo, email
+                }
+
+                axios.post('http://localhost:3000/users', userProfile)
+                .then((res) => {
+                    if(res.data.insertedId){
+                        navigate(`${location.state ? location.state : '/'}`);
+                        Swal.fire({
+                            icon: "success",
+                            title: "Your account has been created successfully!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
             })
             .catch(() => {
                 Swal.fire({
