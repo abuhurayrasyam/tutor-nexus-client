@@ -2,5 +2,9 @@
 @plugin "daisyui";
 
 @plugin "daisyui" {
-themes: light --default, dark --prefersdark, forest;
+themes: light --default, dark --prefersdark;
 }
+
+a.active{
+    @apply bg-[#D4C9BE] text-[#123458] border-none px-3 rounded-sm;
+  }

@@ -49,7 +49,7 @@ const SignIn = () => {
         <div className="hero bg-base-100 my-10">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <Lottie className='w-100' animationData={signInAnimation} loop={true}></Lottie>
+                    <Lottie className='w-90 md:w-100' animationData={signInAnimation} loop={true}></Lottie>
                 </div>
                 <div className="card bg-base-100 border border-gray-300 w-full max-w-sm shrink-0 shadow-sm pb-3">
                     <div className="card-body">
