@@ -1,4 +1,4 @@
 export const myTutorialsPromise = (email) => {
-    return fetch(`http://localhost:3000/tutorials?email=${email}`)
+    return fetch(`https://tutor-nexus.vercel.app/tutorials?email=${email}`)
     .then(res => res.json());
 }

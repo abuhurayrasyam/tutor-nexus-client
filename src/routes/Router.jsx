@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "update-tutorial/:id",
-            loader: ({params}) => fetch(`http://localhost:3000/tutorials/${params.id}`),
+            loader: ({params}) => fetch(`https://tutor-nexus.vercel.app/tutorials/${params.id}`),
             hydrateFallbackElement: <Loading></Loading>,
             Component: UpdateTutorial
         },
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
     children: [
         {
             path: "find-tutors",
-            loader: () => fetch('http://localhost:3000/tutorials/'),
+            loader: () => fetch('https://tutor-nexus.vercel.app/tutorials/'),
             hydrateFallbackElement: <Loading></Loading>,
             Component: FindTutors
         },

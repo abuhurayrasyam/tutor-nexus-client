@@ -1,4 +1,4 @@
 export const getTutorialsByLanguage = (language) => {
-    return fetch(`http://localhost:3000/tutorials?language=${language}`)
+    return fetch(`https://tutor-nexus.vercel.app/tutorials?language=${language}`)
     .then(res => res.json());
 }

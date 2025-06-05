@@ -16,7 +16,7 @@ const AddTutorials = () => {
         newTutorial.tutorialReview = 0;
         newTutorial.image = user.photoURL;
         
-        axios.post('http://localhost:3000/tutorials', newTutorial)
+        axios.post('https://tutor-nexus.vercel.app/tutorials', newTutorial)
         .then((res) => {
             if(res.data.insertedId){
                   Swal.fire({

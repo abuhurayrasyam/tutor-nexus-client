@@ -19,7 +19,7 @@ const TutorialTableRow = ({index, tutorial, myTutorials, setMyTutorials}) => {
             confirmButtonText: "Yes, delete it!"
             }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/tutorials/${id}`)
+                axios.delete(`https://tutor-nexus.vercel.app/tutorials/${id}`)
                 .then(res => {
                     if(res.data.deletedCount){
                         Swal.fire({

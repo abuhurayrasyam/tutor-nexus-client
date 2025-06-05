@@ -57,7 +57,7 @@ const SignUp = () => {
                     name, photo, email
                 }
 
-                axios.post('http://localhost:3000/users', userProfile)
+                axios.post('https://tutor-nexus.vercel.app/users', userProfile)
                 .then((res) => {
                     if(res.data.insertedId){
                         navigate(`${location.state ? location.state : '/'}`);

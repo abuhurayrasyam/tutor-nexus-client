@@ -17,7 +17,7 @@ const UpdateTutorial = () => {
         const formData = new FormData(form);
         const updateTutorial = Object.fromEntries(formData.entries());
 
-        axios.put(`http://localhost:3000/tutorials/${_id}`, updateTutorial)
+        axios.put(`https://tutor-nexus.vercel.app/tutorials/${_id}`, updateTutorial)
         .then((res) => {
              if(res.data.modifiedCount){
                 Swal.fire({
