@@ -8,14 +8,10 @@ const MyBookedTutors = () => {
 
     const {user} = useContext(AuthContext);
 
-    if (!user) {
-        return <Loading />;
-    }
-
     return (
         <div className='min-h-screen'>
             <Suspense fallback={<Loading></Loading>}>
-                <BookingList myTutorsPromise={myTutorsPromise(user?.email)}></BookingList>
+                <BookingList myTutorsPromise={myTutorsPromise(user.email)}></BookingList>
             </Suspense>
         </div>
     );

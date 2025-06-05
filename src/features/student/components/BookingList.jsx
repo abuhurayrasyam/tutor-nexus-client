@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import BookingCard from './BookingCard';
+import { Link } from 'react-router';
 
 const BookingList = ({myTutorsPromise}) => {
 
@@ -7,8 +8,23 @@ const BookingList = ({myTutorsPromise}) => {
 
     return (
         <div>
+
             <div>
-                {myTutors.map(myTutor => <BookingCard key={myTutor._id} myTutor={myTutor}></BookingCard>)}
+                {
+                    myTutors.length > 0 ? (
+                        <>
+                            {myTutors.map(myTutor => <BookingCard key={myTutor._id} myTutor={myTutor}></BookingCard>)}
+                        </>
+                    ) : (
+                        <div className='flex items-center justify-center h-screen'>
+                            <div className="text-center py-10">
+                                <h2 className="text-2xl font-semibold text-natural">You haven't booked any tutors yet.</h2>
+                                <p className="text-[#D4C9BE] mt-2">Start by booking a tutor to see it listed here.</p>
+                                <Link to={'/student/find-tutors'}><button className='btn mt-5 bg-[#D4C9BE] hover:bg-[#B6B09F] border-1 border-dashed border-[#123458] text-[#123458]'>See Tutors</button></Link>
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     );

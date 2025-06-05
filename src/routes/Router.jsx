@@ -14,6 +14,7 @@ import FindTutors from "../features/student/pages/FindTutors";
 import TutorDetails from "../features/student/pages/TutorDetails";
 import MyBookedTutors from "../features/student/pages/MyBookedTutors";
 import Loading from "../components/Loading";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -48,17 +49,17 @@ export const router = createBrowserRouter([
     children: [
         {
             path: "add-tutorials",
-            Component: AddTutorials
+            element: <PrivateRoute><AddTutorials></AddTutorials></PrivateRoute>
         },
         {
             path: "update-tutorial/:id",
             loader: ({params}) => fetch(`https://tutor-nexus.vercel.app/tutorials/${params.id}`),
             hydrateFallbackElement: <Loading></Loading>,
-            Component: UpdateTutorial
+            element: <PrivateRoute><UpdateTutorial></UpdateTutorial></PrivateRoute>
         },
         {
             path: "my-tutorials",
-            Component: MyTutorials
+            element: <PrivateRoute><MyTutorials></MyTutorials></PrivateRoute>
         }
     ]
   },
@@ -76,11 +77,11 @@ export const router = createBrowserRouter([
             path: "tutor/details/:id",
             loader: ({params}) => fetch(`https://tutor-nexus.vercel.app/tutorials/${params.id}`),
             hydrateFallbackElement: <Loading></Loading>,
-            Component: TutorDetails,
+            element: <PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>
         },
         {
             path: "my-booked-tutors",
-            Component: MyBookedTutors
+            element: <PrivateRoute><MyBookedTutors></MyBookedTutors></PrivateRoute>
         }
     ]
   }

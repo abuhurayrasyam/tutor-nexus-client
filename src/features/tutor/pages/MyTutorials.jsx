@@ -8,14 +8,10 @@ const MyTutorials = () => {
 
     const {user} = useContext(AuthContext);
 
-    if (!user) {
-        return <Loading />;
-    }
-
     return (
         <div className='min-h-screen'>
             <Suspense fallback={<Loading></Loading>}> 
-                <TutorialList myTutorialsPromise={myTutorialsPromise(user?.email)}></TutorialList>
+                <TutorialList myTutorialsPromise={myTutorialsPromise(user.email)}></TutorialList>
             </Suspense>
         </div>
     );
