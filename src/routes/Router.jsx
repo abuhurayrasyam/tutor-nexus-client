@@ -68,6 +68,8 @@ export const router = createBrowserRouter([
     children: [
         {
             path: "find-tutors",
+            loader: () => fetch('http://localhost:3000/tutorials/'),
+            hydrateFallbackElement: <Loading></Loading>,
             Component: FindTutors
         },
         {

@@ -14,6 +14,7 @@ const AddTutorials = () => {
         const formData = new FormData(form);
         const newTutorial = Object.fromEntries(formData.entries());
         newTutorial.tutorialReview = 0;
+        newTutorial.image = user.photoURL;
         
         axios.post('http://localhost:3000/tutorials', newTutorial)
         .then((res) => {
@@ -44,15 +45,15 @@ const AddTutorials = () => {
                     <label className="label">Tutorial Language</label>
                     <select className="select" name='tutorialLanguage' required>
                         <option value="" disabled selected>Select a Tutorial Language</option>
-                        <option value="arabic">Arabic</option>
-                        <option value="english">English</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="English">English</option>
                         <option value="spanish">Spanish</option>
-                        <option value="french">French</option>
-                        <option value="portuguese">Portuguese</option>
-                        <option value="mandarin">Mandarin Chinese</option>
-                        <option value="japanese">Japanese</option>
-                        <option value="korean">Korean</option>
-                        <option value="bengali">Bengali</option>
+                        <option value="French">French</option>
+                        <option value="Portuguese">Portuguese</option>
+                        <option value="Mandarin">Mandarin Chinese</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Bengali">Bengali</option>
                     </select>
                     <label className="label">Tutorial Price</label>
                     <input type="number" className="input" name='tutorialPrice' placeholder="Enter tutorial price" required />
