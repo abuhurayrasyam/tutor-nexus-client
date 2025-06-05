@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { IoLanguage } from 'react-icons/io5';
+import { Link } from 'react-router';
 
 const TutorCard = ({tutorData}) => {
 
-    const {image, name, tutorialReview, tutorialLanguage, tutorialDescription} = tutorData;
+    const {_id, image, name, tutorialReview, tutorialLanguage, tutorialDescription} = tutorData;
 
     return (
         <div className="card grid grid-cols-1 md:grid-cols-12 bg-[#D4C9BE] border-2 border-dotted border-[#123458] w-full shrink-0 shadow-sm p-5 md:p-8 my-10">
@@ -24,7 +25,7 @@ const TutorCard = ({tutorData}) => {
                     <p className='text-gray-700 font-semibold'>{tutorialLanguage}</p>
                 </div>
                 <p className='text-gray-600'>{tutorialDescription}</p>
-                <button className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full md:w-30">See Details</button>
+                <Link to={`/student/tutor/details/${_id}`}><button className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full md:w-30">See Details</button></Link>
             </div>
         </div>
     );
