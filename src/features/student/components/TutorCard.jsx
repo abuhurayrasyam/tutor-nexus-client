@@ -7,11 +7,11 @@ const TutorCard = ({tutorData}) => {
     const {image, name, tutorialReview, tutorialLanguage, tutorialDescription} = tutorData;
 
     return (
-        <div className="card flex flex-col md:flex-row bg-[#D4C9BE] border-2 border-dotted border-[#123458] w-full shrink-0 shadow-sm p-5 md:p-8 my-10">
-            <figure>
-                <img className='w-80 h-60 rounded-xl' src={image} />
+        <div className="card grid grid-cols-1 md:grid-cols-12 bg-[#D4C9BE] border-2 border-dotted border-[#123458] w-full shrink-0 shadow-sm p-5 md:p-8 my-10">
+            <figure className='col-span-2'>
+                <img className='w-50 h-60 object-cover rounded-xl' src={image} />
             </figure>
-            <div className="card-body">
+            <div className="card-body col-span-10">
                 <div className='flex justify-between items-center'>
                     <h2 className="card-title text-[#123458]">{name}</h2>
                     <div className='flex items-center gap-1'>
@@ -23,10 +23,8 @@ const TutorCard = ({tutorData}) => {
                     <IoLanguage className='text-black' size={20} />
                     <p className='text-gray-700 font-semibold'>{tutorialLanguage}</p>
                 </div>
-                <div className="card-actions">
-                    <p className='text-gray-600'>{tutorialDescription}</p>
-                    <button className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full md:w-30">See Details</button>
-                </div>
+                <p className='text-gray-600'>{tutorialDescription}</p>
+                <button className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full md:w-30">See Details</button>
             </div>
         </div>
     );

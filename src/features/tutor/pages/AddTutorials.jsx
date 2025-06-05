@@ -47,7 +47,7 @@ const AddTutorials = () => {
                         <option value="" disabled selected>Select a Tutorial Language</option>
                         <option value="Arabic">Arabic</option>
                         <option value="English">English</option>
-                        <option value="spanish">Spanish</option>
+                        <option value="Spanish">Spanish</option>
                         <option value="French">French</option>
                         <option value="Portuguese">Portuguese</option>
                         <option value="Mandarin">Mandarin Chinese</option>
