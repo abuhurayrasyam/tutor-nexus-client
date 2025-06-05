@@ -1,43 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { IoLanguage } from 'react-icons/io5';
-import { useLoaderData } from 'react-router';
-import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-import axios from 'axios';
-import Swal from 'sweetalert2';
 import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi';
+import { IoLanguage } from 'react-icons/io5';
 
-const TutorDetails = () => {
+const BookingCard = ({myTutor}) => {
 
-    const {user} = useContext(AuthContext);
-
-    const {_id, image, name, email, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = useLoaderData();
-
-    const handleBookingTutor = () => {
-        const tutorData = {
-            tutorId: _id,
-            image,
-            name,
-            tutorEmail: email,
-            userEmail: user.email,
-            tutorialImage,
-            tutorialLanguage,
-            tutorialPrice,
-            tutorialReview
-        };
-
-        axios.post('https://tutor-nexus.vercel.app/bookings', tutorData)
-        .then(res => {
-            if(res.data.insertedId){
-                    Swal.fire({
-                    icon: "success",
-                    title: "You booked this tutorial successfully!",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        })
-    }
+    const {_id, image, name, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription,tutorialReview} = myTutor;
 
     return (
         <div className='w-11/12 mx-auto'>
@@ -69,11 +37,11 @@ const TutorDetails = () => {
                         <p className='text-gray-700 font-semibold'>{tutorialPrice}</p>
                     </div>
                     <p className='text-gray-600'>{tutorialDescription}</p>
-                    <button onClick={handleBookingTutor} className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full">Book Now</button>
+                    <button className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full">Review</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default TutorDetails;
+export default BookingCard;
