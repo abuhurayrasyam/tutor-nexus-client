@@ -13,6 +13,7 @@ import StudentLayout from "../layouts/StudentLayout";
 import FindTutors from "../features/student/pages/FindTutors";
 import TutorDetails from "../features/student/pages/TutorDetails";
 import MyBookedTutors from "../features/student/pages/MyBookedTutors";
+import Loading from "../components/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,8 @@ export const router = createBrowserRouter([
         },
         {
             path: "update-tutorial/:id",
+            loader: ({params}) => fetch(`http://localhost:3000/tutorials/${params.id}`),
+            hydrateFallbackElement: <Loading></Loading>,
             Component: UpdateTutorial
         },
         {

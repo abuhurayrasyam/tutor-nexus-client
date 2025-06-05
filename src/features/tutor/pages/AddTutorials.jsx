@@ -43,7 +43,7 @@ const AddTutorials = () => {
                     <input type="url" className="input" name='tutorialImage' placeholder="Enter tutorial image url" required />
                     <label className="label">Tutorial Language</label>
                     <select className="select" name='tutorialLanguage' required>
-                        <option value="" disabled>Select a Tutorial Language</option>
+                        <option value="" disabled selected>Select a Tutorial Language</option>
                         <option value="arabic">Arabic</option>
                         <option value="english">English</option>
                         <option value="spanish">Spanish</option>
