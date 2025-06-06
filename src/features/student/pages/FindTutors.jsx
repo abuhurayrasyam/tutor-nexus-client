@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useSearchParams } from 'react-router';
 import TutorCard from '../components/TutorCard';
 import SearchTutors from '../components/SearchTutors';
 import { getTutorialsByLanguage } from '../../../api/tutorialsByLanguageApi';
@@ -11,9 +11,20 @@ const FindTutors = () => {
     const [tutorsData, setTutorsData] = useState(initialTutors);
     const [search, setSearch] = useState("");
 
+    const [searchParams] = useSearchParams();
+    const languageParam = searchParams.get("language");
+
     useEffect(() => {
-        if(search.trim() === ""){
-            setTutorsData(initialTutors);
+        if (!search.trim() && languageParam) {
+        getTutorialsByLanguage(languageParam)
+            .then(data => setTutorsData(data))
+            .catch(() => setTutorsData([]));
+        return;
+        }
+
+        if (!search.trim() && !languageParam) {
+        setTutorsData(initialTutors);
+        return;
         }
 
         getTutorialsByLanguage(search)
@@ -23,7 +34,7 @@ const FindTutors = () => {
         .catch(() => {
             setTutorsData([]);    
         });
-    },[search, initialTutors])
+    },[search, initialTutors, languageParam])
 
     return (
         <div className='w-11/12 mx-auto min-h-screen'>
@@ -33,7 +44,17 @@ const FindTutors = () => {
             </div>
             <div>
                 {
-                    tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
+                    tutorsData.length ? (
+                        <>
+                            {
+                                tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
+                            }
+                        </>
+                    ) : (
+                        <p className="text-center text-[#D4C9BE] mt-10">
+                            No tutors found. Try a different language or search term.
+                        </p>
+                    )
                 }
             </div>
         </div>
