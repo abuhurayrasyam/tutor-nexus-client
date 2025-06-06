@@ -69,8 +69,6 @@ export const router = createBrowserRouter([
     children: [
         {
             path: "find-tutors",
-            loader: () => fetch('https://tutor-nexus.vercel.app/tutorials/'),
-            hydrateFallbackElement: <Loading></Loading>,
             Component: FindTutors
         },
         {

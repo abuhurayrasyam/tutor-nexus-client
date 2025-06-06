@@ -1,40 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData, useSearchParams } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router';
 import TutorCard from '../components/TutorCard';
 import SearchTutors from '../components/SearchTutors';
-import { getTutorialsByLanguage } from '../../../api/tutorialsByLanguageApi';
+import Loading from '../../../components/Loading';
+import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
+import axios from 'axios';
 
 const FindTutors = () => {
 
-    const initialTutors = useLoaderData();
+    const {loading, setLoading} = useContext(AuthContext)
 
-    const [tutorsData, setTutorsData] = useState(initialTutors);
+    const [tutorsData, setTutorsData] = useState([]);
     const [search, setSearch] = useState("");
 
     const [searchParams] = useSearchParams();
     const languageParam = searchParams.get("language");
 
     useEffect(() => {
-        if (!search.trim() && languageParam) {
-        getTutorialsByLanguage(languageParam)
-            .then(data => setTutorsData(data))
-            .catch(() => setTutorsData([]));
-        return;
-        }
+        setLoading(true);
 
-        if (!search.trim() && !languageParam) {
-        setTutorsData(initialTutors);
-        return;
-        }
+        const query = search.trim() || languageParam;
+        const url = query ? `https://tutor-nexus.vercel.app/tutorials?language=${query}` : 'https://tutor-nexus.vercel.app/tutorials';
 
-        getTutorialsByLanguage(search)
-        .then((data) => {
-            setTutorsData(data)
-        })
-        .catch(() => {
-            setTutorsData([]);    
+        axios.get(url)
+        .then((res) => {
+            setTutorsData(res.data);
+            setLoading(false);
         });
-    },[search, initialTutors, languageParam])
+
+        window.scrollTo(0, 0);
+    }, [search, languageParam, setTutorsData, setLoading]);
 
     return (
         <div className='w-11/12 mx-auto min-h-screen'>
@@ -44,16 +39,24 @@ const FindTutors = () => {
             </div>
             <div>
                 {
-                    tutorsData.length ? (
-                        <>
-                            {
-                                tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
-                            }
-                        </>
+                    loading ? (
+                        <Loading></Loading>
                     ) : (
-                        <p className="text-center text-[#D4C9BE] mt-10">
-                            No tutors found. Try a different language or search term.
-                        </p>
+                        <>
+                        {
+                            tutorsData.length ? (
+                                <>
+                                    {
+                                        tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
+                                    }
+                                </>
+                            ) : (
+                                <p className="text-center text-[#D4C9BE] mt-10">
+                                    No tutors found. Try a different language or search term.
+                                </p>
+                            )
+                        }
+                        </>
                     )
                 }
             </div>
