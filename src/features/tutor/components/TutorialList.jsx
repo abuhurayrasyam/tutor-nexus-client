@@ -9,7 +9,7 @@ const TutorialList = ({myTutorialsPromise}) => {
     const [myTutorials, setMyTutorials] = useState(myInitialTutorials);
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto w-11/12 mx-auto">
             {
                myTutorials.length > 0 ? (
                     <table className="table">

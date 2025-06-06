@@ -9,10 +9,10 @@ const Home = () => {
             <section>
                 <Banner></Banner>
             </section>
-            <section>
+            <section className='w-11/12 mx-auto'>
                 <LanguageCategorySection></LanguageCategorySection>
             </section>
-            <section>
+            <section className='w-11/12 mx-auto'>
                 <HowItWorks></HowItWorks>
             </section>
         </div>

@@ -45,11 +45,11 @@ const FindTutors = () => {
                         <>
                         {
                             tutorsData.length ? (
-                                <>
+                                <div className='w-11/12 mx-auto'>
                                     {
                                         tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
                                     }
-                                </>
+                                </div>
                             ) : (
                                 <p className="text-center text-[#D4C9BE] mt-10">
                                     No tutors found. Try a different language or search term.

@@ -8,13 +8,12 @@ const BookingList = ({myTutorsPromise}) => {
 
     return (
         <div>
-
             <div>
                 {
                     myTutors.length > 0 ? (
-                        <>
+                        <div className='w-11/12 mx-auto'>
                             {myTutors.map(myTutor => <BookingCard key={myTutor._id} myTutor={myTutor}></BookingCard>)}
-                        </>
+                        </div>
                     ) : (
                         <div className='flex items-center justify-center h-screen'>
                             <div className="text-center py-10">
