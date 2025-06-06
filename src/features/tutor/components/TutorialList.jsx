@@ -12,23 +12,26 @@ const TutorialList = ({myTutorialsPromise}) => {
         <div className="overflow-x-auto w-11/12 mx-auto">
             {
                myTutorials.length > 0 ? (
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Image</th>
-                                <th>Language</th>
-                                <th>Price</th>
-                                <th>Description</th>
-                                <th>Review</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                myTutorials.map((tutorial, index) => <TutorialTableRow key={tutorial._id} index={index} tutorial={tutorial} myTutorials={myTutorials} setMyTutorials={setMyTutorials}></TutorialTableRow>)
-                            }
-                        </tbody>
-                    </table>
+                    <>
+                       <h1 className='text-xl md:text-2xl lg:text-4xl font-bold text-center my-10'>My Tutorials</h1>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Language</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Review</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    myTutorials.map((tutorial, index) => <TutorialTableRow key={tutorial._id} index={index} tutorial={tutorial} myTutorials={myTutorials} setMyTutorials={setMyTutorials}></TutorialTableRow>)
+                                }
+                            </tbody>
+                        </table>
+                    </>
                 ) : (
                     <div className='flex items-center justify-center h-screen'>
                         <div className="text-center py-10">

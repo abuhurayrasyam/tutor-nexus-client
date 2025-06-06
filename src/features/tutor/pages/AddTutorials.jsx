@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const AddTutorials = () => {
 
@@ -29,6 +30,12 @@ const AddTutorials = () => {
             }
         });
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useDocumentTitle("Tutor Nexus | Add Tutorials");
 
     return (
          <div className="hero bg-base-200 min-h-screen py-10">

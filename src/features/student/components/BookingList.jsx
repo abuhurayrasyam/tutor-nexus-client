@@ -11,9 +11,12 @@ const BookingList = ({myTutorsPromise}) => {
             <div>
                 {
                     myTutors.length > 0 ? (
-                        <div className='w-11/12 mx-auto'>
-                            {myTutors.map(myTutor => <BookingCard key={myTutor._id} myTutor={myTutor}></BookingCard>)}
-                        </div>
+                        <>
+                            <h1 className='text-xl md:text-2xl lg:text-4xl font-bold text-center my-10'>My Booked Tutors</h1>
+                            <div className='w-11/12 mx-auto'>
+                                {myTutors.map(myTutor => <BookingCard key={myTutor._id} myTutor={myTutor}></BookingCard>)}
+                            </div>
+                        </>
                     ) : (
                         <div className='flex items-center justify-center h-screen'>
                             <div className="text-center py-10">

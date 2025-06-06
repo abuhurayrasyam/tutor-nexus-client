@@ -5,6 +5,7 @@ import SearchTutors from '../components/SearchTutors';
 import Loading from '../../../components/Loading';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import axios from 'axios';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const FindTutors = () => {
 
@@ -30,6 +31,8 @@ const FindTutors = () => {
 
         window.scrollTo(0, 0);
     }, [search, languageParam, setTutorsData, setLoading]);
+
+    useDocumentTitle("Tutor Nexus | Find Tutors");
 
     return (
         <div className='w-11/12 mx-auto min-h-screen'>

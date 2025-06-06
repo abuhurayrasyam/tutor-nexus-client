@@ -2,8 +2,12 @@ import React from 'react';
 import Banner from '../components/Home/Banner';
 import LanguageCategorySection from '../components/Home/LanguageCategorySection';
 import HowItWorks from '../components/Home/HowItWorks';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const Home = () => {
+
+    useDocumentTitle("Tutor Nexus | Home");
+
     return (
         <div>
             <section>

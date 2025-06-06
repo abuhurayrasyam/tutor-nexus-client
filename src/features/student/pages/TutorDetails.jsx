@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { IoLanguage } from 'react-icons/io5';
 import { useLoaderData } from 'react-router';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const TutorDetails = () => {
 
@@ -38,6 +39,12 @@ const TutorDetails = () => {
             }
         })
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useDocumentTitle("Tutor Nexus | Tutor Details");
 
     return (
         <div className='w-11/12 mx-auto'>
