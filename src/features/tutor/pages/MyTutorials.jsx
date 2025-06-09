@@ -1,13 +1,15 @@
 import React, { Suspense, useContext, useEffect } from 'react';
 import Loading from '../../../components/Loading';
 import TutorialList from '../components/TutorialList';
-import { myTutorialsPromise } from '../../../api/myTutorialsApi';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
+import myTutorialsApi from '../../../api/myTutorialsApi';
 
 const MyTutorials = () => {
 
     const {user} = useContext(AuthContext);
+
+    const {myTutorialsPromise} = myTutorialsApi();
 
     useEffect(() => {
         window.scrollTo(0, 0);
