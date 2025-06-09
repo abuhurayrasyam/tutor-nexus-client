@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import auth from '../../firebase/firebase.config';
+import axios from 'axios';
 
 const AuthProvider = ({children}) => {
 
@@ -37,6 +38,20 @@ const AuthProvider = ({children}) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
+
+            //jwt
+            if(currentUser?.email){
+                axios.post('https://tutor-nexus.vercel.app/jwt', 
+                    {
+                        email: currentUser?.email
+                    },
+                    {
+                        withCredentials: true
+                    }
+                )
+                .then(res => console.log(res.data))
+                .catch(error => console.log(error))
+            }
         })
         return () => {
             unSubscribe();
