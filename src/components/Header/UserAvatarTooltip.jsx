@@ -4,46 +4,48 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 const UserAvatarTooltip = () => {
+  const { user } = useContext(AuthContext);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
-    const {user} = useContext(AuthContext);
+  const toggleTooltip = (e) => {
+    e.stopPropagation();
+    setShowTooltip((prev) => !prev);
+  };
 
-    const [showTooltip, setShowTooltip] = useState(false);
+  useEffect(() => {
+    const hideTooltip = () => setShowTooltip(false);
+    document.addEventListener('click', hideTooltip);
+    return () => document.removeEventListener('click', hideTooltip);
+  }, []);
 
-    const toggleTooltip = (e) => {
-        e.stopPropagation();
-        setShowTooltip(prev => !prev);
-    };
+  return (
+    <div>
+      {user && (
+        <>
+          <div
+            id="user-avatar"
+            data-tooltip-content={user.displayName}
+            className="btn btn-ghost btn-circle avatar cursor-pointer"
+            onClick={toggleTooltip}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <div className="w-8 md:w-12 rounded-full">
+              <img alt={user.displayName} src={user.photoURL} />
+            </div>
+          </div>
 
-    useEffect(() => {
-        const hideTooltip = () => setShowTooltip(false);
-        document.addEventListener('click', hideTooltip);
-        return () => document.removeEventListener('click', hideTooltip);
-    }, []);
-
-    return (
-        <div>
-            {
-                user && (
-                    <>
-                        <div onClick={toggleTooltip} data-tooltip-id="user-tooltip" data-tooltip-content={user.displayName} className="btn btn-ghost btn-circle avatar cursor-pointer">
-                            <div className="w-8 md:w-12 rounded-full">
-                                <img alt={user.displayName} src={user.photoURL} />
-                            </div>
-                        </div>
-
-                        <Tooltip
-                            id="user-tooltip"
-                            open={showTooltip}
-                            place="bottom"
-                            events={['click']}
-                            eventsOff={['click']}
-                            clickable
-                        />
-                    </>
-                )
-            }
-        </div>
-    );
+          <Tooltip
+            anchorId="user-avatar"
+            isOpen={hovered || showTooltip}
+            place="bottom"
+            clickable
+          />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default UserAvatarTooltip;
