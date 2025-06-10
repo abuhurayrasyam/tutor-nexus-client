@@ -40,10 +40,9 @@
 
 ## 📦 Environment Variables
 
-Create a `.env` file in the root of the client project and add:
+Create a `.env.local` file in the root of the client project and add:
 
 ```env
-VITE_API_BASE_URL=https://your-server-url.com
 VITE_FIREBASE_API_KEY=your-api-key
 VITE_FIREBASE_AUTH_DOMAIN=your-auth-domain
 VITE_FIREBASE_PROJECT_ID=your-project-id
