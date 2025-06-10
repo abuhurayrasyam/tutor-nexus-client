@@ -50,8 +50,9 @@ VITE_FIREBASE_PROJECT_ID=your-project-id
 VITE_FIREBASE_STORAGE_BUCKET=your-storage-bucket
 VITE_FIREBASE_MESSAGING_SENDER_ID=your-messaging-id
 VITE_FIREBASE_APP_ID=your-app-id
+```
 
 
-📜 Installation
+## 📜 Installation
 npm install
 npm run dev
