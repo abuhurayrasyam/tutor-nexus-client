@@ -10,7 +10,7 @@ const StatsSection = ({setLoading}) => {
     });
 
     useEffect(() => {
-        axios.get('http://localhost:3000/stats')
+        axios.get('https://tutor-nexus.vercel.app/stats')
             .then(res => setStats(res.data));
             setLoading(false);
     }, [setLoading]);
