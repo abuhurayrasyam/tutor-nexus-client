@@ -54,5 +54,7 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 
 ## 📜 Installation
+```
 npm install
 npm run dev
+```
