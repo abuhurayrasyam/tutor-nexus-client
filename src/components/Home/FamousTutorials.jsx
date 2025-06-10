@@ -1,12 +1,8 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TutorCard from '../../features/student/components/TutorCard';
-import { AuthContext } from '../../contexts/AuthContext/AuthContext';
-import Loading from '../Loading';
 
-const FamousTutorials = () => {
-
-    const {loading, setLoading} = useContext(AuthContext);
+const FamousTutorials = ({setLoading}) => {
 
     const [famousTutorials, setFamousTutorials] = useState([]);
 
@@ -17,10 +13,6 @@ const FamousTutorials = () => {
             setLoading(false);
         })
     },[setLoading])
-
-    if(loading) {
-        return <Loading></Loading>
-    }
 
     return (
         <div>
