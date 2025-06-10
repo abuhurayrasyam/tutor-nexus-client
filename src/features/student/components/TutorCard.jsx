@@ -8,7 +8,7 @@ const TutorCard = ({tutorData}) => {
     const {_id, image, name, tutorialReview, tutorialLanguage, tutorialDescription} = tutorData;
 
     return (
-        <div className="card grid grid-cols-1 md:grid-cols-12 bg-[#D4C9BE] border-2 border-dotted border-[#123458] w-full shrink-0 shadow-sm p-5 md:p-8 my-10">
+        <div className="card grid grid-cols-1 md:grid-cols-12 bg-[#D4C9BE] border border-[#123458] w-11/12 mx-auto shrink-0 shadow-sm p-5 md:p-8 my-10">
             <figure className='col-span-2'>
                 <img className='w-50 h-60 object-cover rounded-xl' src={image} />
             </figure>

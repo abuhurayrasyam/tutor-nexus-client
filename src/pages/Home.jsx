@@ -3,6 +3,7 @@ import Banner from '../components/Home/Banner';
 import LanguageCategorySection from '../components/Home/LanguageCategorySection';
 import HowItWorks from '../components/Home/HowItWorks';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import FamousTutorials from '../components/Home/FamousTutorials';
 
 const Home = () => {
 
@@ -18,6 +19,9 @@ const Home = () => {
             </section>
             <section className='w-11/12 mx-auto'>
                 <HowItWorks></HowItWorks>
+            </section>
+            <section className='w-11/12 mx-auto'>
+                <FamousTutorials></FamousTutorials>
             </section>
         </div>
     );

@@ -48,7 +48,7 @@ const FindTutors = () => {
                         <>
                         {
                             tutorsData.length ? (
-                                <div className='w-11/12 mx-auto'>
+                                <div>
                                     {
                                         tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
                                     }
