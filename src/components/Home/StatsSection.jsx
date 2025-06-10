@@ -26,8 +26,8 @@ const StatsSection = ({setLoading}) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center my-10 w-11/12 mx-auto">
             {statItems.map((item, index) => (
                 <div key={index} className="p-4 shadow rounded bg-[#D4C9BE]">
-                    <h3 className="text-xl font-bold">{item.value}</h3>
-                    <p>{item.label}</p>
+                    <h3 className="text-xl font-bold text-[#123458]">{item.value}</h3>
+                    <p className='text-[#123458]'>{item.label}</p>
                 </div>
             ))}
         </div>
