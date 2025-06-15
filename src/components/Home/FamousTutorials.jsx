@@ -19,7 +19,7 @@ const FamousTutorials = ({setLoading}) => {
             <h2 className="text-2xl md:text-2xl lg:text-3xl font-bold text-center mb-10">Top Rated Tutor</h2>
             <div>
                 {
-                    famousTutorials.map(tutorData => <TutorCard tutorData={tutorData}></TutorCard>)
+                    famousTutorials.map((tutorData, index) => <TutorCard key={index} tutorData={tutorData}></TutorCard>)
                 }
             </div>
         </div>

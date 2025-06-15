@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://tutor-nexus.vercel.app/',
+  baseURL: 'https://tutor-nexus.vercel.app',
 });
 
 const useAxiosSecure = () => {
