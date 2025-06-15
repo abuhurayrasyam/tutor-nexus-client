@@ -1,6 +1,6 @@
 # Tutor Nexus - Client Side
 
-**Tutor Nexus** is an online tutor booking platform designed to connect learners with tutors across various languages and subjects. This frontend project is built with **React**, styled using **Tailwind CSS**, and utilizes **Firebase Authentication** and **JWT** for secure access.
+**Tutor Nexus** is an online tutor booking platform designed to connect learners with tutors across various languages and subjects. This frontend project is built with **React**, styled using **Tailwind CSS**, and utilizes **Firebase Authentication** and **Firebase Token Verification** for secure access.
 
 ## 🔗 Live URL
 
@@ -14,7 +14,7 @@
 - 📊 Real-time statistics of tutors, users, languages, and reviews
 - 🧑‍🏫 Browse tutors by language category
 - ➕ Add and manage your own tutorials
-- ✅ Private routes with JWT verification
+- ✅ Private routes with Firebase Token verification
 - 📅 Book tutors and leave reviews
 - 🌙 Dark / Light Theme toggle
 - 🔍 Search tutors by language
