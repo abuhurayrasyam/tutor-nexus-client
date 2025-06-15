@@ -38,6 +38,23 @@ const TutorDetails = () => {
                 });
             }
         })
+        .catch(err => {
+            if (err.response?.status === 400) {
+                Swal.fire({
+                icon: "warning",
+                title: err.response.data.error || "You have already booked this tutor!",
+                showConfirmButton: false,
+                timer: 2000
+                });
+            } else {
+                Swal.fire({
+                icon: "error",
+                title: "Something went wrong! Please try again later.",
+                showConfirmButton: false,
+                timer: 2000
+                });
+            }
+        });
     }
 
     useEffect(() => {
