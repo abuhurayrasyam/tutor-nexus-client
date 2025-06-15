@@ -1,18 +1,21 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi';
 import { IoLanguage } from 'react-icons/io5';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 
 const BookingCard = ({myTutor}) => {
+
+    const {user} = useContext(AuthContext);
 
     const [tutor, setTutor] = useState(myTutor);
 
     const {_id, image, name, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = tutor;
 
    const handleReview = (id) => {
-    axios.patch(`https://tutor-nexus.vercel.app/tutorials/review/${id}`)
+    axios.patch(`https://tutor-nexus.vercel.app/tutorials/review/${id}`, {email: user.email})
         .then(res => {
             const bookingModified = res.data.bookingUpdate?.modifiedCount;
             const tutorialModified = res.data.tutorialUpdate?.modifiedCount;
@@ -35,6 +38,23 @@ const BookingCard = ({myTutor}) => {
                 });
             }
         })
+        .catch(err => {
+            if (err.response?.status === 400) {
+                Swal.fire({
+                icon: "warning",
+                title: err.response.data.error || "You already reviewed this tutor!",
+                timer: 2000,
+                showConfirmButton: false,
+                });
+            } else {
+                Swal.fire({
+                icon: "error",
+                title: "Something went wrong!",
+                timer: 2000,
+                showConfirmButton: false,
+                });
+            }
+        });
     };
  
     return (
