@@ -3,12 +3,14 @@ import { FaStar } from 'react-icons/fa';
 import { IoLanguage } from 'react-icons/io5';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const TutorDetails = () => {
+
+    const axiosSecure = useAxiosSecure();
 
     const {user} = useContext(AuthContext);
 
@@ -27,7 +29,7 @@ const TutorDetails = () => {
             tutorialReview
         };
 
-        axios.post('https://tutor-nexus.vercel.app/bookings', tutorData)
+        axiosSecure.post('/bookings', tutorData)
         .then(res => {
             if(res.data.insertedId){
                     Swal.fire({

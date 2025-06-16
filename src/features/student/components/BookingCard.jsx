@@ -1,12 +1,14 @@
-import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi';
 import { IoLanguage } from 'react-icons/io5';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const BookingCard = ({myTutor}) => {
+
+    const axiosSecure = useAxiosSecure();
 
     const {user} = useContext(AuthContext);
 
@@ -15,7 +17,7 @@ const BookingCard = ({myTutor}) => {
     const {_id, image, name, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = tutor;
 
    const handleReview = (id) => {
-    axios.patch(`https://tutor-nexus.vercel.app/tutorials/review/${id}`, {email: user.email})
+    axiosSecure.patch(`/tutorials/review/${id}`, {email: user.email})
         .then(res => {
             const bookingModified = res.data.bookingUpdate?.modifiedCount;
             const tutorialModified = res.data.tutorialUpdate?.modifiedCount;

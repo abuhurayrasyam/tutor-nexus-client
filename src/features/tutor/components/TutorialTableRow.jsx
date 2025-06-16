@@ -1,10 +1,12 @@
-import axios from 'axios';
 import { FaRegEdit } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const TutorialTableRow = ({index, tutorial, myTutorials, setMyTutorials}) => {
+
+    const axiosSecure = useAxiosSecure();
 
     const {_id, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = tutorial;
 
@@ -19,7 +21,7 @@ const TutorialTableRow = ({index, tutorial, myTutorials, setMyTutorials}) => {
             confirmButtonText: "Yes, delete it!"
             }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://tutor-nexus.vercel.app/tutorials/${id}`)
+                axiosSecure.delete(`/tutorials/${id}`)
                 .then(res => {
                     if(res.data.deletedCount){
                         Swal.fire({

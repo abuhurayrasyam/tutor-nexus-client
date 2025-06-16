@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AddTutorials = () => {
+
+    const axiosSecure = useAxiosSecure();
 
     const {user} = useContext(AuthContext);
 
@@ -17,7 +19,7 @@ const AddTutorials = () => {
         newTutorial.tutorialReview = 0;
         newTutorial.image = user.photoURL;
         
-        axios.post('https://tutor-nexus.vercel.app/tutorials', newTutorial)
+        axiosSecure.post('/tutorials', newTutorial)
         .then((res) => {
             if(res.data.insertedId){
                   Swal.fire({

@@ -1,16 +1,18 @@
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import { useLoaderData } from 'react-router';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const UpdateTutorial = () => {
+
+    const axiosSecure = useAxiosSecure();
 
     const {user} = useContext(AuthContext);
 
     const {_id, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = useLoaderData();
-
+    
     const handleUpdateTutorials = (e) => {
         e.preventDefault();
 
@@ -18,7 +20,7 @@ const UpdateTutorial = () => {
         const formData = new FormData(form);
         const updateTutorial = Object.fromEntries(formData.entries());
 
-        axios.put(`https://tutor-nexus.vercel.app/tutorials/${_id}`, updateTutorial)
+        axiosSecure.put(`/tutorials/${_id}`, updateTutorial)
         .then((res) => {
              if(res.data.modifiedCount){
                 Swal.fire({
