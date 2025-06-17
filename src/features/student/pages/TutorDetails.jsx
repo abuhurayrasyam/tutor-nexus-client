@@ -1,20 +1,39 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { IoLanguage } from 'react-icons/io5';
-import { useLoaderData } from 'react-router';
+import { useParams } from 'react-router';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi';
-import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Loading from '../../../components/Loading';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const TutorDetails = () => {
 
+    useDocumentTitle("Tutor Nexus | Tutor Details");
+
+    const { id } = useParams();
+    const [ tutor, setTutor ] = useState(null);
     const axiosSecure = useAxiosSecure();
+    const {user, loading, setLoading} = useContext(AuthContext);
 
-    const {user} = useContext(AuthContext);
+    useEffect(() => {
+        axiosSecure.get(`/tutorials/${id}`)
+        .then(res => {
+            setTutor(res.data);
+            setLoading(false);
+        })
+        .catch(() => {
+            setLoading(false);
+        });
 
-    const {_id, image, name, email, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = useLoaderData();
+        window.scrollTo(0, 0);
+    }, [id, axiosSecure, setLoading]);
+
+    if (loading || !tutor) return <Loading />;
+
+    const {_id, image, name, email, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = tutor;
 
     const handleBookingTutor = () => {
         const tutorData = {
@@ -58,12 +77,6 @@ const TutorDetails = () => {
             }
         });
     }
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    useDocumentTitle("Tutor Nexus | Tutor Details");
 
     return (
         <div className='w-11/12 mx-auto'>

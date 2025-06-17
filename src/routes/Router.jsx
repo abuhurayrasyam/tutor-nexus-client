@@ -13,7 +13,6 @@ import StudentLayout from "../layouts/StudentLayout";
 import FindTutors from "../features/student/pages/FindTutors";
 import TutorDetails from "../features/student/pages/TutorDetails";
 import MyBookedTutors from "../features/student/pages/MyBookedTutors";
-import Loading from "../components/Loading";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -53,8 +52,6 @@ export const router = createBrowserRouter([
         },
         {
             path: "update-tutorial/:id",
-            loader: ({params}) => fetch(`https://tutor-nexus.vercel.app/tutorials/${params.id}`),
-            hydrateFallbackElement: <Loading></Loading>,
             element: <PrivateRoute><UpdateTutorial></UpdateTutorial></PrivateRoute>
         },
         {
@@ -73,8 +70,6 @@ export const router = createBrowserRouter([
         },
         {
             path: "tutor/details/:id",
-            loader: ({params}) => fetch(`https://tutor-nexus.vercel.app/tutorials/${params.id}`),
-            hydrateFallbackElement: <Loading></Loading>,
             element: <PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>
         },
         {

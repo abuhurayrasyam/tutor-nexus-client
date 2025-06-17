@@ -1,17 +1,36 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-import { useLoaderData } from 'react-router';
+import { useParams } from 'react-router';
 import Swal from 'sweetalert2';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Loading from '../../../components/Loading';
 
 const UpdateTutorial = () => {
 
+    useDocumentTitle("Tutor Nexus | Update Tutorial");
+
+    const { id } = useParams();
+    const [tutorial, setTutorial] = useState(null);
     const axiosSecure = useAxiosSecure();
+    const {user, loading, setLoading} = useContext(AuthContext);
 
-    const {user} = useContext(AuthContext);
+    useEffect(() => {
+        axiosSecure.get(`/tutorials/${id}`)
+        .then(res => {
+            setTutorial(res.data);
+            setLoading(false);
+        })
+        .catch(() => {
+            setLoading(false);
+        });
 
-    const {_id, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = useLoaderData();
+        window.scrollTo(0, 0);
+    }, [id, axiosSecure, setLoading]);
+
+    if (loading || !tutorial) return <Loading />;
+
+    const {_id, tutorialImage, tutorialLanguage, tutorialPrice, tutorialDescription, tutorialReview} = tutorial;
     
     const handleUpdateTutorials = (e) => {
         e.preventDefault();
@@ -32,12 +51,6 @@ const UpdateTutorial = () => {
             }
         })
     }
-
-    useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
-    
-    useDocumentTitle("Tutor Nexus | Update Tutorial");
 
     return (
         <div className="hero bg-base-200 min-h-screen py-10">
