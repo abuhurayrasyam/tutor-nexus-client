@@ -73,7 +73,7 @@ const UpdateTutorial = () => {
                             <option value="Spanish">Spanish</option>
                             <option value="French">French</option>
                             <option value="Portuguese">Portuguese</option>
-                            <option value="Mandarin">Mandarin Chinese</option>
+                            <option value="Chinese">Chinese</option>
                             <option value="Japanese">Japanese</option>
                             <option value="Korean">Korean</option>
                             <option value="Bengali">Bengali</option>
