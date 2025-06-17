@@ -1,18 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import TutorCard from '../components/TutorCard';
 import SearchTutors from '../components/SearchTutors';
 import Loading from '../../../components/Loading';
-import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import axios from 'axios';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
+import FilteredTutorCard from '../components/FilteredTutorCard';
 
 const FindTutors = () => {
 
-    const {loading, setLoading} = useContext(AuthContext)
-
     const [tutorsData, setTutorsData] = useState([]);
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
 
     const [searchParams] = useSearchParams();
     const languageParam = searchParams.get("language");
@@ -27,10 +26,10 @@ const FindTutors = () => {
         .then((res) => {
             setTutorsData(res.data);
             setLoading(false);
-        });
+        })
 
         window.scrollTo(0, 0);
-    }, [search, languageParam, setTutorsData, setLoading]);
+    }, [search, languageParam, setTutorsData]);
 
     useDocumentTitle("Tutor Nexus | Find Tutors");
 
@@ -47,10 +46,12 @@ const FindTutors = () => {
                     ) : (
                         <>
                         {
-                            tutorsData.length ? (
+                            tutorsData.length > 0 ? (
                                 <div>
                                     {
-                                        tutorsData.map(tutorData => <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>)
+                                        tutorsData.map(tutorData => 
+                                            (search || languageParam) ? <FilteredTutorCard key={tutorData._id} tutorData={tutorData}></FilteredTutorCard> : <TutorCard key={tutorData._id} tutorData={tutorData}></TutorCard>
+                                        )
                                     }
                                 </div>
                             ) : (
