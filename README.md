@@ -57,3 +57,11 @@ VITE_FIREBASE_APP_ID=your-app-id
 npm install
 npm run dev
 ```
+
+---
+
+📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+📬 Contact
+For questions or feedback, reach out via email: abuhurayrasyamofficial@gmail.com
