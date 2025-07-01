@@ -32,6 +32,11 @@ const Navbar = () => {
         <>
             <NavLink to={'/'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>Home</NavLink>
             <NavLink to={'/student/find-tutors'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>Find Tutors</NavLink>
+        </>
+    )
+
+    const protectedNavLinks = (
+        <>
             <NavLink to={'/student/my-booked-tutors'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>My Booked Tutors</NavLink>
             <NavLink to={'/tutor/add-tutorials'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>Add Tutorials</NavLink>
             <NavLink to={'/tutor/my-tutorials'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>My Tutorials</NavLink>
@@ -65,12 +70,20 @@ const Navbar = () => {
                     className="menu menu-sm dropdown-content bg-[#123458] rounded-box z-1 mt-3 w-52 p-2 shadow"
                     >
                     {navLinks}
+                    {
+                        user && protectedNavLinks
+                    }
                     </ul>
                 </div>
                 <a className="text-[#D4C9BE] font-semibold lg:text-xl md:text-md text-sm">Tutor <span className='text-white'>Nexus</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+                <ul className="menu menu-horizontal px-1">
+                    {navLinks}
+                    {
+                        user && protectedNavLinks
+                    }
+                </ul>
                 </div>
                 <div className="navbar-end space-x-1.5 items-center">
                     <ThemeToggle></ThemeToggle>
