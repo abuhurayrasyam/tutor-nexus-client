@@ -30,21 +30,21 @@ const Navbar = () => {
 
     const navLinks = (
         <>
-            <NavLink to={'/'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>Home</NavLink>
-            <NavLink to={'/student/find-tutors'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>Find Tutors</NavLink>
+            <NavLink to={'/'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Home</NavLink>
+            <NavLink to={'/student/find-tutors'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Find Tutors</NavLink>
         </>
     )
 
     const protectedNavLinks = (
         <>
-            <NavLink to={'/student/my-booked-tutors'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>My Booked Tutors</NavLink>
-            <NavLink to={'/tutor/add-tutorials'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>Add Tutorials</NavLink>
-            <NavLink to={'/tutor/my-tutorials'} className={'btn m-2 cursor-pointer bg-[#123458] hover:bg-[#D4C9BE] text-white hover:text-[#123458] border border-[#D4C9BE] shadow-sm'}>My Tutorials</NavLink>
+            <NavLink to={'/student/my-booked-tutors'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>My Booked Tutors</NavLink>
+            <NavLink to={'/tutor/add-tutorials'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Add Tutorials</NavLink>
+            <NavLink to={'/tutor/my-tutorials'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>My Tutorials</NavLink>
         </>
     )
 
     return (
-        <div className="bg-[#123458] border-b border-[#EAE4D5] shadow-sm">
+        <div className="bg-primary shadow-sm">
             <div className="navbar w-11/12 mx-auto">
                 <div className="navbar-start">
                 <div className="dropdown">
@@ -67,7 +67,7 @@ const Navbar = () => {
                     </div>
                     <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-[#123458] rounded-box z-1 mt-3 w-52 p-2 shadow"
+                    className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
                     >
                     {navLinks}
                     {
@@ -75,7 +75,7 @@ const Navbar = () => {
                     }
                     </ul>
                 </div>
-                <a className="text-[#D4C9BE] font-semibold lg:text-xl md:text-md text-sm">Tutor <span className='text-white'>Nexus</span></a>
+                <Link to={'/'} className="text-secondary font-semibold lg:text-xl md:text-md text-sm">Tutor <span className='text-accent'>Nexus</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -90,11 +90,11 @@ const Navbar = () => {
                     <UserAvatarTooltip></UserAvatarTooltip>
                     {
                         user ? (
-                            <button onClick={handleLogoutUser} className='bg-[#D4C9BE] rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer'>Logout</button>
+                            <button onClick={handleLogoutUser} className='bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer'>Logout</button>
                         ) : (
                             <>
-                            <Link to={'/auth/signin'} className="bg-[#D4C9BE] rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Login</Link>
-                            <Link to={'/auth/signup'} className="bg-[#D4C9BE] rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer"><button>SignUp</button></Link>
+                            <Link to={'/auth/signin'} className="bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Login</Link>
+                            <Link to={'/auth/signup'} className="bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer"><button>SignUp</button></Link>
                             </>
                         )
                     }

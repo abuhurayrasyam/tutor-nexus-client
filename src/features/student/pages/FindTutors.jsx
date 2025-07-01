@@ -55,7 +55,7 @@ const FindTutors = () => {
                                     }
                                 </div>
                             ) : (
-                                <p className="text-center text-[#D4C9BE] mt-10">
+                                <p className="text-center text-secondary mt-10">
                                     No tutors found. Try a different language or search term.
                                 </p>
                             )

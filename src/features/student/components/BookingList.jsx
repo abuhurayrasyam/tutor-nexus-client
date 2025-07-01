@@ -21,8 +21,8 @@ const BookingList = ({myTutorsPromise}) => {
                         <div className='flex items-center justify-center h-screen'>
                             <div className="text-center py-10">
                                 <h2 className="text-2xl font-semibold text-natural">You haven't booked any tutors yet.</h2>
-                                <p className="text-[#D4C9BE] mt-2">Start by booking a tutor to see it listed here.</p>
-                                <Link to={'/student/find-tutors'}><button className='btn mt-5 bg-[#D4C9BE] hover:bg-[#B6B09F] border-1 border-dashed border-[#123458] text-[#123458]'>See Tutors</button></Link>
+                                <p className="text-secondary mt-2">Start by booking a tutor to see it listed here.</p>
+                                <Link to={'/student/find-tutors'}><button className='btn mt-5 bg-secondary hover:bg-[#B6B09F] border-1 border-dashed border-primary text-primary'>See Tutors</button></Link>
                             </div>
                         </div>
                     )

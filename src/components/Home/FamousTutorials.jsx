@@ -15,7 +15,7 @@ const FamousTutorials = ({setLoading}) => {
     },[setLoading])
 
     return (
-        <div>
+        <div className='my-10'>
             <h2 className="text-2xl md:text-2xl lg:text-3xl font-bold text-center mb-10">Top Rated Tutor</h2>
             <div>
                 {

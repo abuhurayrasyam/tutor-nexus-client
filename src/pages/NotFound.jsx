@@ -18,7 +18,7 @@ const Error = () => {
       </p>
       <Link
         to="/"
-        className="btn bg-primary text-white hover:bg-secondary hover:text-neutral px-6 py-2 rounded-md shadow-md"
+        className="btn bg-primary text-accent hover:bg-secondary hover:text-neutral px-6 py-2 rounded-md shadow-md"
       >
         Go to Homepage
       </Link>

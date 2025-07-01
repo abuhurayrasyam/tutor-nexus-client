@@ -14,6 +14,7 @@ import FindTutors from "../features/student/pages/FindTutors";
 import TutorDetails from "../features/student/pages/TutorDetails";
 import MyBookedTutors from "../features/student/pages/MyBookedTutors";
 import PrivateRoute from "./PrivateRoute";
+import TermsAndConditions from "../pages/TermsAndConditions";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             index: true,
             path: "/",
             Component: Home
+        },
+        {
+            path: "/terms",
+            Component: TermsAndConditions
         }
     ]
   },

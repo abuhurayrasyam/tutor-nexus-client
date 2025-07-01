@@ -6,8 +6,8 @@ import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-         <footer className="bg-[#123458] border-t border-[#D4C9BE] shadow-xl text-base-content">
-        <div className="footer sm:footer-horizontal w-11/12 mx-auto p-5 lg:justify-around text-white my-5">
+         <footer className="bg-primary shadow-xl text-base-content">
+        <div className="footer sm:footer-horizontal w-11/12 mx-auto p-5 lg:justify-around text-accent my-5">
             <nav>
                 <h6 className="footer-title">Contact</h6>
                 <div className="flex gap-2 items-center">
@@ -25,25 +25,25 @@ const Footer = () => {
             </nav>
             <nav>
                 <h6 className="footer-title">Legal</h6>
-                <Link to={'/'} target="_blank" className="link link-hover">Terms and Conditions</Link>
+                <Link to={'/terms'} target="_blank" className="link link-hover">Terms and Conditions</Link>
             </nav>
             <nav>
                 <h6 className="footer-title">Social</h6>
                 <div className="grid grid-flow-col gap-4 items-center">
-                <Link to={'https://www.x.com'} target="_blank">
+                <Link to={'https://www.x.com/abuhurayrasyam'} target="_blank">
                     <FaXTwitter size={23} />
                 </Link>
-                <Link to={'https://www.instagram.com'} target="_blank">
+                <Link to={'https://www.instagram.com/abuhurayrasyam'} target="_blank">
                     <FaInstagram size={24} />
                 </Link>
-                <Link to={'https://www.facebook.com'} target="_blank">
+                <Link to={'https://www.facebook.com/abuhurayrasyamofficial'} target="_blank">
                 <FaFacebookF size={24} />
                 </Link>
                 </div>
             </nav>
         </div>
-        <div className="bg-[#D4C9BE] border-b-5 border-[#123458] py-4">
-            <p className="text-center w-11/12 mx-auto md:text-sm text-[12px] text-gray-800">Copyright © {new Date().getFullYear()} - All right reserved by Tutor Nexus</p>
+        <div className="bg-secondary border-b-5 border-primary py-4">
+            <p className="text-center w-11/12 mx-auto md:text-sm text-[12px] text-primary">Copyright © {new Date().getFullYear()} - All right reserved by Tutor Nexus</p>
         </div>
     </footer>
     );

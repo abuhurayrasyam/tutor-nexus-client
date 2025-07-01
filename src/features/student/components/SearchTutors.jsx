@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchTutors = ({setSearch}) => {
     return (
-        <label className="input border=2 border-[#D4C9BE]">
+        <label className="input border=2 border-secondary">
             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <g
                 strokeLinejoin="round"

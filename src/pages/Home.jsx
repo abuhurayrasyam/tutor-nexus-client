@@ -7,6 +7,7 @@ import FamousTutorials from '../components/Home/FamousTutorials';
 import StatsSection from '../components/Home/StatsSection';
 import { AuthContext } from '../contexts/AuthContext/AuthContext';
 import Loading from '../components/Loading';
+import WhyChooseUs from '../components/Home/WhyChooseUs';
 
 const Home = () => {
 
@@ -35,6 +36,9 @@ const Home = () => {
                         </section>
                         <section className='w-11/12 mx-auto'>
                             <FamousTutorials setLoading={setLoading}></FamousTutorials>
+                        </section>
+                        <section className='w-11/12 mx-auto'>
+                            <WhyChooseUs></WhyChooseUs>
                         </section>
                     </>
                 )

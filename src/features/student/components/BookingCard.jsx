@@ -61,7 +61,7 @@ const BookingCard = ({myTutor}) => {
  
     return (
         <div className='w-11/12 mx-auto'>
-            <div className="card grid grid-cols-1 md:grid-cols-12 bg-[#D4C9BE] border border-[#123458] w-full shrink-0 shadow-sm p-5 md:p-8 my-10">
+            <div className="card grid grid-cols-1 md:grid-cols-12 bg-secondary border border-primary w-full shrink-0 shadow-sm p-5 md:p-8 my-10">
                 <figure className='col-span-4'>
                     <img className='w-80 h-60 object-cover rounded-xl' src={tutorialImage} />
                 </figure>
@@ -69,11 +69,11 @@ const BookingCard = ({myTutor}) => {
                     <div className='flex justify-between items-center'>
                         <div className='flex items-center gap-2'>
                             <div className="avatar">
-                                <div className="ring-[#123458] w-8 rounded-full ring-1">
+                                <div className="ring-primary w-8 rounded-full ring-1">
                                     <img src={image} />
                                 </div>
                             </div>
-                            <h2 className="card-title text-[#123458]">{name}</h2>
+                            <h2 className="card-title text-primary">{name}</h2>
                         </div>
                         <div className='flex items-center gap-1'>
                             <p className='text-black font-semibold text-xl'>{tutorialReview}</p>
@@ -89,7 +89,7 @@ const BookingCard = ({myTutor}) => {
                         <p className='text-gray-700 font-semibold'>{tutorialPrice}</p>
                     </div>
                     <p className='text-gray-600'>{tutorialDescription}</p>
-                    <button onClick={() => handleReview(_id)} className="btn bg-[#123458] text-[#D4C9BE] border border-dotted border-[#F1EFEC] shadow-none w-full">Review</button>
+                    <button onClick={() => handleReview(_id)} className="btn bg-primary text-secondary border border-dotted border-[#F1EFEC] shadow-none w-full">Review</button>
                 </div>
             </div>
         </div>
