@@ -76,7 +76,6 @@ const UpdateTutorial = () => {
                             <option value="Chinese">Chinese</option>
                             <option value="Japanese">Japanese</option>
                             <option value="Korean">Korean</option>
-                            <option value="Bengali">Bengali</option>
                         </select>
                         <label className="label">Tutorial Price</label>
                         <input type="number" className="input" name='tutorialPrice' placeholder="Enter tutorial price" defaultValue={tutorialPrice} required />
