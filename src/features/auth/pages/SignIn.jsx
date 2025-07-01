@@ -6,8 +6,11 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import signInAnimation from '../../../assets/LottieFiles/signin-animation.json';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const SignIn = () => {
+
+    useDocumentTitle("Tutor Nexus | SignIn");
 
     const {signInUser} = useContext(AuthContext);
     

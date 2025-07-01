@@ -8,8 +8,11 @@ import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
+import useDocumentTitle from '../../../hooks/useDocumentTitle';
 
 const SignUp = () => {
+
+    useDocumentTitle("Tutor Nexus | SignUp");
 
     const {signUpUser, updateUserProfile} = useContext(AuthContext);
 
