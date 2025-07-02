@@ -1,9 +1,9 @@
 import React, { Suspense, useContext, useEffect } from 'react';
 import Loading from '../../../components/Loading';
-import TutorialList from '../components/TutorialList';
 import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import myTutorialsApi from '../../../api/myTutorialsApi';
+import TutorialList from '../components/TutorialList';
 
 const MyTutorials = () => {
 

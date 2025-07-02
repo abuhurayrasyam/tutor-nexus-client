@@ -55,7 +55,7 @@ const TutorialTableRow = ({index, tutorial, myTutorials, setMyTutorials}) => {
             <td>{tutorialDescription}</td>
             <td>{tutorialReview}</td>
             <th className='flex gap-5 justify-center items-center'>
-                <Link to={`/tutor/update-tutorial/${_id}`} title="Update"><FaRegEdit size={25} className="text-blue-500 hover:text-blue-700 text-lg md:text-xl" /></Link>
+                <Link to={`/dashboard/update-tutorial/${_id}`} title="Update"><FaRegEdit size={25} className="text-blue-500 hover:text-blue-700 text-lg md:text-xl" /></Link>
                 <button onClick={() => handleDeleteTutorial(_id)} title="Delete"><MdDeleteForever size={26} className="text-red-500 hover:text-red-700 text-lg md:text-xl cursor-pointer" /></button>
             </th>
         </tr>

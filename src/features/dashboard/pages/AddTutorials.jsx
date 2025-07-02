@@ -68,7 +68,7 @@ const AddTutorials = () => {
                         <input type="number" className="input" name='tutorialPrice' placeholder="Enter tutorial price" required />
                         <label className="label">Tutorial Description</label>
                         <textarea type="text" className="input pt-2" name='tutorialDescription' placeholder="Enter tutorial description" required />
-                        <input type="submit" className="btn btn-neutral border-dotted shadow-none border-gray-50 mt-4" value="Submit" />
+                        <input type="submit" className="btn btn-primary border-dotted shadow-none border-gray-50 mt-4" value="Submit" />
                         </form>
                     </div>
                 </div>

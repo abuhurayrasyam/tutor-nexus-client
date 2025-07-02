@@ -71,7 +71,7 @@ const SignIn = () => {
                                 </button>
                             </div>
                             <div> Forgot password?</div>
-                            <input type="submit" className="btn btn-neutral border-dotted shadow-none border-gray-50 mt-4" value="Login" />
+                            <input type="submit" className="btn btn-primary border-dotted shadow-none border-gray-50 mt-4" value="Login" />
                             </form>
                             <h4 className="text-gray-500 text-center">Don't Have An Account ? <Link to={'/auth/signup'} className="text-red-600">SignUp</Link></h4>
                             <div className="flex items-center gap-2">

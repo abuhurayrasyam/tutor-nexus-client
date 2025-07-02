@@ -37,7 +37,7 @@ const TutorialList = ({myTutorialsPromise}) => {
                         <div className="text-center py-10">
                             <h2 className="text-2xl font-semibold text-natural">You haven't published any tutorials yet.</h2>
                             <p className="text-secondary mt-2">Start by creating a new tutorial to see it listed here.</p>
-                            <Link to={'/tutor/add-tutorials'}><button className='btn mt-5 bg-secondary hover:bg-[#B6B09F] border-1 border-dashed border-primary text-primary'>Add a Tutorials</button></Link>
+                            <Link to={'/dashboard/add-tutorials'}><button className='btn mt-5 bg-secondary hover:bg-[#B6B09F] border-1 border-dashed border-primary text-primary'>Add a Tutorials</button></Link>
                         </div>
                     </div>
                 )

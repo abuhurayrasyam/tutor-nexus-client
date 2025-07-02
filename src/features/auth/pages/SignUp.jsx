@@ -126,7 +126,7 @@ const SignUp = () => {
                                 <input type="checkbox" defaultChecked className="checkbox h-5 w-5" />
                                 <a className="link link-hover">Accept Term & Conditions</a>
                             </div>
-                            <input type="submit" className="btn btn-neutral border-dotted shadow-none border-gray-50 mt-4" value="Register" />
+                            <input type="submit" className="btn btn-primary border-dotted shadow-none border-gray-50 mt-4" value="Register" />
                             </form>
                             <h4 className="text-gray-500 text-center">Already Have an Account ? <Link to={'/auth/signin'} className="text-red-600">Login</Link></h4>
                             <div className="flex items-center gap-2">

@@ -1,32 +1,13 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
-import Swal from 'sweetalert2';
 import ThemeToggle from './ThemeToggle';
 import UserAvatarTooltip from './UserAvatarTooltip';
+import Logout from './Logout';
 
 const Navbar = () => {
 
-    const {user, signOutUser} = useContext(AuthContext);
-
-    const handleLogoutUser = () => {
-        signOutUser()
-        .then(() => {
-            Swal.fire({
-                icon: "success",
-                title: "Logout successful!",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        })
-        .catch(() => {
-            Swal.fire({
-                title: "Logout unsuccessful!",
-                icon: "error",
-                draggable: true
-            });
-        })
-    }
+    const {user} = useContext(AuthContext);
 
     const navLinks = (
         <>
@@ -40,8 +21,6 @@ const Navbar = () => {
     const protectedNavLinks = (
         <>
             <NavLink to={'/student/my-booked-tutors'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>My Booked Tutors</NavLink>
-            <NavLink to={'/tutor/add-tutorials'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Add Tutorials</NavLink>
-            <NavLink to={'/tutor/my-tutorials'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>My Tutorials</NavLink>
         </>
     )
 
@@ -92,7 +71,10 @@ const Navbar = () => {
                     <UserAvatarTooltip></UserAvatarTooltip>
                     {
                         user ? (
-                            <button onClick={handleLogoutUser} className='bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer'>Logout</button>
+                            <>
+                                <Link to={'/dashboard'} className="bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Dashboard</Link>
+                                <Logout></Logout>
+                            </>
                         ) : (
                             <>
                             <Link to={'/auth/signin'} className="bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Login</Link>

@@ -83,7 +83,7 @@ const UpdateTutorial = () => {
                         <textarea type="text" className="input pt-2" name='tutorialDescription' placeholder="Enter tutorial description" defaultValue={tutorialDescription} required />
                         <label className="label">Tutorial Review</label>
                         <p className='input'>{tutorialReview}</p>
-                        <input type="submit" className="btn btn-neutral border-dotted shadow-none border-gray-50 mt-4" value="Update" />
+                        <input type="submit" className="btn btn-primary border-dotted shadow-none border-gray-50 mt-4" value="Update" />
                         </form>
                     </div>
                 </div>
