@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
                 <div className="flex gap-2 items-center">
                     <FaHome size={18} />
-                    <h4>MUSAFIR House, Tangail-1980</h4>
+                    <h4>Tutor Nexus HQ, Tangail-1980</h4>
                 </div>
             </nav>
             <nav>

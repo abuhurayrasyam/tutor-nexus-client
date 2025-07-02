@@ -32,6 +32,8 @@ const Navbar = () => {
         <>
             <NavLink to={'/'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Home</NavLink>
             <NavLink to={'/student/find-tutors'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Find Tutors</NavLink>
+            <NavLink to={'/about'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>About Us</NavLink>
+            <NavLink to={'/contact'} className={'btn m-2 cursor-pointer bg-primary hover:bg-secondary text-accent hover:text-primary border border-secondary shadow-sm'}>Contact Us</NavLink>
         </>
     )
 
