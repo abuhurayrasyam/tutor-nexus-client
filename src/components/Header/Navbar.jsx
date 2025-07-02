@@ -68,12 +68,24 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end space-x-1.5 items-center">
                     <ThemeToggle></ThemeToggle>
-                    <UserAvatarTooltip></UserAvatarTooltip>
+                    <div className='hidden lg:block'><UserAvatarTooltip></UserAvatarTooltip></div>
                     {
                         user ? (
                             <>
-                                <Link to={'/dashboard'} className="bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Dashboard</Link>
-                                <Logout></Logout>
+                                <div className="dropdown">
+                                <div tabIndex={0} role="button" className="text-secondary p-3 lg:hidden">
+                                    <UserAvatarTooltip></UserAvatarTooltip>
+                                </div>
+                                <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow right-0"
+                                >
+                                    <Link to={'/dashboard'} className="bg-secondary mb-2 text-center rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Dashboard</Link>
+                                    <Logout></Logout>
+                                </ul>
+                            </div> 
+                            <Link to={'/dashboard'} className="hidden lg:block bg-secondary rounded-sm text-gray-800 text-xs md:text-base font-semibold px-2.5 py-2 md:px-4 cursor-pointer">Dashboard</Link>
+                            <div className='hidden lg:block'><Logout></Logout></div>
                             </>
                         ) : (
                             <>
